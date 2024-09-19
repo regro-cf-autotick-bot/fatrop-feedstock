@@ -1,8 +1,17 @@
+From 2fe8ea93d8fbba470ec3ea20cdc6f9083b86b0bc Mon Sep 17 00:00:00 2001
+From: Silvio Traversaro <silvio@traversaro.it>
+Date: Thu, 19 Sep 2024 09:19:56 +0200
+Subject: [PATCH] Streamline build with BUILD_WITH_BLASFEO=OFF
+
+---
+ external/CMakeLists.txt | 14 +-------------
+ 1 file changed, 1 insertion(+), 13 deletions(-)
+
 diff --git a/external/CMakeLists.txt b/external/CMakeLists.txt
-index 808b4b8..cca1b3b 100644
+index 8aed9c5..c1d8e8c 100644
 --- a/external/CMakeLists.txt
 +++ b/external/CMakeLists.txt
-@@ -30,20 +30,7 @@ if (BUILD_WITH_BLASFEO)
+@@ -30,19 +30,7 @@ if (BUILD_WITH_BLASFEO)
      add_subdirectory(blasfeo)
  
  else()
@@ -19,8 +28,7 @@ index 808b4b8..cca1b3b 100644
 -
 -    # Set the path to the include directory
 -    set_target_properties(blasfeo PROPERTIES INTERFACE_INCLUDE_DIRECTORIES ${BLASFEO_INCLUDE_DIR})
--    
 +    find_package(blasfeo REQUIRED)
+ 
  endif()
  
- if(WITH_PYTHON)
