@@ -12,6 +12,7 @@ source:
       - do_not_hardcode_blasfeo_path.patch
 
 build:
+  skip: true  # [win]
   number: 1
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x.x') }}
