@@ -1,5 +1,5 @@
 {% set name = "libfatrop" %}
-{% set version = "0.0.4" %}
+{% set version = "0.0.4.post1" %}
 
 package:
   name: {{ name }}
@@ -7,13 +7,13 @@ package:
 
 source:
   - url: https://github.com/meco-group/fatrop/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: 30354b4e7aeee8f475955518513f81d692cd0179d03c8553e78e3d3f9d443943
+    sha256: 634b197b15eaab21fe963d6d61797522f1459b6ecfbe9dee43a01a59e5e40b7d
     patches:
       - do_not_hardcode_blasfeo_path.patch
 
 build:
   skip: true  # [win]
-  number: 1
+  number: 0
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x.x') }}
 
